@@ -5,7 +5,7 @@ import sys
 def get_number_hosts(eingabe_snm):
     ones = 0b11111111111111111111111111111111
     snm = int(get_formatted_ip(eingabe_snm),2)
-    return (ones ^ snm) - 1
+    return (ones ^ snm) - 2
     pass
 
 
