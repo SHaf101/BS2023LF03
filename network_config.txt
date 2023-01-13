@@ -2,31 +2,31 @@ Switch:
 	-hostname:	fisswitch
 	-Vlans: 	1	-/-
 	
-				10	GTWY=	172.16.7.17
-					IP= 	(172.16.7.18/19 nicht benutzt)	
-							172.16.7.20 -
-							172.16.7.30
-					SNM= 	255.255.255.240/28 
+			10	GTWY=	172.16.7.17
+				IP= 	(172.16.7.18/19 nicht benutzt)	
+					172.16.7.20 -
+					172.16.7.30
+				SNM= 	255.255.255.240/28 
 					
-				20  GTWY=	172.16.7.9
-					IP= 	172.16.7.10 -
-							172.16.7.14
-					SNM= 	255.255.255.248/29
+			20  	GTWY=	172.16.7.9
+				IP= 	172.16.7.10 -
+					172.16.7.14
+				SNM= 	255.255.255.248/29
 					
-				30	???
+			30	???
 				
 	-Ports:		FA0/1=Firewall/Router
-					vlans 10,20,30 (TRUNK)
-				FA0/2=DMZ Raspbi
-					vlans 20
-				FA0/3=DHCP/DNS Raspbi
-					vlans 10
-				FA0/4=Client 1
-					vlans 10
-				FA0/5=Client 2
-					vlans 10
-				FA0/6=Client 3
-					vlans 10
+				vlans 10,20,30 (TRUNK)
+			FA0/2=DMZ Raspbi
+				vlans 20
+			FA0/3=DHCP/DNS Raspbi
+				vlans 10
+			FA0/4=Client 1
+				vlans 10
+			FA0/5=Client 2
+				vlans 10
+			FA0/6=Client 3
+				vlans 10
 	
 
 	
