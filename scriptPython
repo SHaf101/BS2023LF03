@@ -39,38 +39,69 @@ def select_tables():
     questions = [
     inquirer.List('table',
                     message="Choose a table",
-                    choices=["devices", "device_function", "addresses", "physical"],
+                    choices=["devices", "device_function", "addresses", "switches"],
                  ),
     ]
     answers = inquirer.prompt(questions)
     table_name = answers["table"]
     print (table_name)
 
+    datei = open('Fitness.txt', 'a')
+    tmpstring = ''
+
     mycursor = db.cursor()
     mycursor.execute("SELECT * FROM " + table_name)
     myresult = mycursor.fetchall()
     for x_sel_tab in myresult:
      print(x_sel_tab)
+     for x_sel in x_sel_tab:
+        print(x_sel)
+        tmpstring = tmpstring + (str(x_sel)) + ' '
+    tmpstring = tmpstring + '\n'
+    datei.write(tmpstring)
+
+
     ending()
 
 def show_loc_devices():
+
+    datei = open('Fitness.txt', 'a')
+    tmpstring = ''
 
     mycursor = db.cursor()
     mycursor.execute("select d.location, d.id, d.name, a.mac_address, a.ip_address from devices as d inner join addresses as a on d.id = a.id where d.location = 'ITECH' order by d.id asc")
     myresult = mycursor.fetchall()
     for x_sel_tab in myresult:
-     print(x_sel_tab) 
+     print(x_sel_tab)
+     for x_sel in x_sel_tab:
+        print(x_sel)
+        tmpstring = tmpstring + (str(x_sel)) + ' '
+    tmpstring = tmpstring + '\n'
+    datei.write(tmpstring)
+     
     ending()
 
 def show_switch_dev_descr():
+
+    datei = open('Fitness.txt', 'a')
+    tmpstring = ''
+
     mycursor = db.cursor()
     mycursor.execute("select distinct s.switch, d.id, d.name from switches as s inner join devices as d on s.id = d.id where s.switch = 'fisswitch'")
     myresult = mycursor.fetchall()
     for x_sel_tab in myresult:
-     print(x_sel_tab) 
+     print(x_sel_tab)
+     for x_sel in x_sel_tab:
+        print(x_sel)
+        tmpstring = tmpstring + (str(x_sel)) + ' '
+    tmpstring = tmpstring + '\n'
+    datei.write(tmpstring)
+
+
     ending()
 
 def show_vlan_dev():
+
 
     questions = [
     inquirer.List('options',
@@ -82,11 +113,20 @@ def show_vlan_dev():
     vlan_answer = answers["options"]
     print (vlan_answer)
 
+    datei = open('Fitness.txt', 'a')
+    tmpstring = ''
+
     mycursor = db.cursor()
     mycursor.execute("select s.vlan, d.id, d.name from switches as s inner join devices as d on s.id = d.id where s.vlan = " + "'" + vlan_answer + "'" )
     myresult = mycursor.fetchall()
     for x_sel_tab in myresult:
      print(x_sel_tab)
+     for x_sel in x_sel_tab:
+        print(x_sel)
+        tmpstring = tmpstring + (str(x_sel)) + ' '
+    tmpstring = tmpstring + '\n'
+    datei.write(tmpstring)
+
     ending()
 
 def exit():
