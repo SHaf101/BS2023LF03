@@ -12,8 +12,6 @@ mycursor = db.cursor()
 
 choices=["select a table", "show all devices in a location", "show all devices on a switch","show all devices in a VLAN", "exit"]
 
-datei = open('FitnessGeekTest','a')
-
 def start_menu():
     questions = [
     inquirer.List('options',
